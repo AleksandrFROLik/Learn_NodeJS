@@ -1,17 +1,22 @@
 .App {
-  padding: 30px;
-  display: flex;
+    text-align: center;
 }
 
-.App > div {
-  margin-right: 50px;
+ul {
+    list-style: none;
 }
 
-.error {
-  border: red 1px solid;
+li {
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.error-message {
-  color: red;
+.delete {
+    color: red;
+    cursor: pointer;
 }
-
+input:checked + span {
+    text-decoration: line-through;
+}
