@@ -14,6 +14,9 @@ export const TodoItem = ({todo, handleChecked, removeTodo}: TodoItemType) => {
             <input type="checkbox" checked={todo.completed} onChange={() => handleChecked(todo.id)}/>
             <span>{todo.text}</span>
             <span className='delete' onClick={() => removeTodo(todo.id)}>&times;</span>
+            <input type="checkbox" checked={todo.completed} onChange={() => handleChecked(todo.id)}/>
+            <span>{todo.text}</span>
+            <span className='delete' onClick={() => removeTodo(todo.id)}>&times;</span>
         </li>
     );
 };
