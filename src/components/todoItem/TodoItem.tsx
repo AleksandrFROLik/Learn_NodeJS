@@ -1,22 +1,21 @@
 import React from 'react';
 import {TodosType} from "../../App";
+import {removeTodo, handleChecked}  from '../../store/todoSlice'
+import {useAppDispatch} from "../../store";
 
 
 type TodoItemType = {
     todo: TodosType
-    handleChecked: (id: string) => void
-    removeTodo: (id: string) => void
+    id:string
 }
 
-export const TodoItem = ({todo, handleChecked, removeTodo}: TodoItemType) => {
+export const TodoItem = ({todo, id}: TodoItemType) => {
+    const dispatch = useAppDispatch()
     return (
         <li>
-            <input type="checkbox" checked={todo.completed} onChange={() => handleChecked(todo.id)}/>
+            <input type="checkbox" checked={todo.completed} onChange={() => dispatch(handleChecked({id}))}/>
             <span>{todo.text}</span>
-            <span className='delete' onClick={() => removeTodo(todo.id)}>&times;</span>
-            <input type="checkbox" checked={todo.completed} onChange={() => handleChecked(todo.id)}/>
-            <span>{todo.text}</span>
-            <span className='delete' onClick={() => removeTodo(todo.id)}>&times;</span>
+            <span className='delete' onClick={() => dispatch(removeTodo({id}))}>&times;</span>
         </li>
     );
 };
